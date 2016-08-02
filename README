@@ -1,5 +1,13 @@
-Noddy is a tiny nodejs webserver for serving php pages.
+Noddy is a tiny local nodejs webserver.
 
-It is intended as an out-of-the-box, quick and dirty way to test small php scripts.
+It is intended as an out-of-the-box, local dev, quick and dirty way to test or run php scripts.
 
-It requires nodejs and php-cli to be installed.
+It requires nodejs to be installed.
+
+To run php, php-cli needs to be installed.
+
+This is a minimalistic server, the intent being to have a fast, small footprint webserver
+primarily to test php code, however with minor modification it could run bash, python etc,
+basically anything on your system which can be shelled out to.
+
+ATM Noddy is not optomised for anything and is not suitable for commercial use or use in production.
