@@ -1,5 +1,7 @@
 Noddy is a tiny local nodejs webserver.
 
+Launch Noddy with: node wave.js
+
 It is intended as an out-of-the-box, local dev, quick and dirty way to test or run php scripts.
 
 It requires nodejs to be installed.

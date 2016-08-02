@@ -8,7 +8,7 @@ function portal () {
   var dir = config.web.portal;
   fs.readdir(dir, function (err, list) {
     if (err) {
-      tools.remarks('Portal read error', err);
+      tools.log('error', 'Portal read error', err);
       return;
     }
     var found = [];

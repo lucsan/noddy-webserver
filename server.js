@@ -1,21 +1,27 @@
-/*
-Server.js - the server engine for noddy.
+/**
+ * Server.js - the server engine for noddy.
+ *
+ * This is a minimalistic server.
+ * Much of the work is done in router.js
  */
-//var tools =  require('./tools');
+
+
+
+
 var http = require("http");
-var url = require('url');
 var portal = require('./portal');
 
 function start (route) {
-  portal.portal();
-   function onRequest(request, response) {
-     var pathname = url.parse(request.url).pathname;
-     tools.remarks('request for ' + pathname + ' received');
-     route(pathname, response);
-   }
+    portal.portal(); // Refreshes list of known files in the portal folder.
+  http.createServer(onRequest).listen(config.web.port);
+  tools.log('note', 'server started');
+  function onRequest(request, response) {
+    request.on('error', function(err){
+      tools.log('error', 'request', err);
+    });
+    route(request, response);
+  }
 
-http.createServer(onRequest).listen(config.web.port);
-tools.remarks('Server: Started');
 }
 
 exports.start = start;
