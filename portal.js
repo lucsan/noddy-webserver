@@ -5,8 +5,21 @@ These pages would be in the portal (or alias) folder.
 var fs = require('fs');
 
 function portal () {
-  var dir = config.web.portal;
-  fs.readdir(dir, function (err, list) {
+
+  if (config.web.files === undefined) {
+    list = fs.readdirSync(config.web.portal);
+    makeList(null, list);
+  } else {
+      fs.readdir(config.web.portal, makeList);
+  }
+
+  /**
+   * Take the list of files in the portal directory and adds legitimate (config.web.exts)
+   * to the list config.web.files.
+   * @param  {[type]} err  [description]
+   * @param  {[type]} list [description]
+   */
+  function makeList (err, list) {
     if (err) {
       tools.log('error', 'Portal read error', err);
       return;
@@ -23,7 +36,7 @@ function portal () {
       });
     });
     config.web.files = found;
-  });
+  }
 }
 
 exports.portal = portal;

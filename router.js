@@ -7,25 +7,31 @@ var requester = require('./requester');
 var url = require('url');
 
 function route (request, response) {
-
   requestHeaders(request); // Inspects headers.
-  filename = url.parse(request.url).pathname;
+  portal.portal();
+
+
+
+  var filename = url.parse(request.url).pathname;
   filename = filename.substr(1, filename.length);
+  var queryString = url.parse(request.url).search;
   tools.log('info',filename);
-  var found = '';
-  for (var i = 0, l = config.web.files.length; i < l; i++) {
-    if (config.web.files[i] === filename) {
-      found = filename;
-      pieces = found.split('.');
-      ext = pieces[pieces.length - 1];
-      break;
+
+    // Loop through portal files to see if the requested one exists.
+    var found = '';
+    for (var i = 0, l = config.web.files.length; i < l; i++) {
+      if (config.web.files[i] === filename) {
+        found = filename;
+        pieces = found.split('.');
+        ext = pieces[pieces.length - 1];
+        break;
+      }
     }
-  }
 
-  if (found) {
-    requester.serveFile(filename, ext, response);
+    if (found) {
+      requester.serveFile(filename, ext, queryString, response);
+    }
 
-  }
 
   // if (typeof pathname === 'function') {
   //   pathname(response);

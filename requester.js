@@ -5,16 +5,19 @@ function test (response) {
   console.log('test called');
 }
 
-function serveFile (file, ext, response) {
+function serveFile (file, ext, queryString, response) {
   var callout = '';
-  console.log('Handler: request called on ' + file);
+  tools.log('info', 'Request called on ' + file + ' ' + queryString);
+
   if (ext === 'php') {
-    callout = 'ENV=dev php ' + config.web.portal + '/';
-    executeData(callout, file, response);
+    callout = 'ENV=dev php ' + config.web.portal + '/' + file + ' ' + queryString;
+    tools.log('debug', 'callout', callout);
+    executeData(callout, response);
   }
 
   if (ext === 'html') {
     callout = config.web.portal + '/' + file;
+    // This needs to be made async.
     var page = fs.readFileSync(callout);
     response.writeHead(200, {"Content-Type" : "text/html;charset=utf-8"});
     response.write(page);
@@ -22,19 +25,20 @@ function serveFile (file, ext, response) {
   }
 }
 
-function executeData (callout, file, response)
-{
-  external.exec(callout + file + " ",
-   function(err, stdout, stderr) { sendData(err, stdout, stderr, response); });
+function executeData (callout, response) {
+  external.exec(callout, function (err, stdout, stderr) {
+       sendData(stdout, response);
+     });
 }
 
-function sendData(err, stdout, stderr, response)
-{
-  //if (err) return sendError(500, stderr, response);
+function sendData (stdout, response) {
+  tools.log('debug', 'stdout', stdout);
   response.writeHead(200,{"Content-Type": "text/html;charset=utf-8"});
   response.write(stdout);
   response.end();
 }
+
+
 
 
 exports.serveFile = serveFile;

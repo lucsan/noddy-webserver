@@ -7,21 +7,20 @@
 
 
 
-
+var portal = require('./portal'); // Reads directory to see if there are any files to serve.
+var router = require('./router');
 var http = require("http");
-var portal = require('./portal');
 
-function start (route) {
-    portal.portal(); // Refreshes list of known files in the portal folder.
+function start () {
+  //portal.portal(); // Initiallise list of known files in the portal folder.
   http.createServer(onRequest).listen(config.web.port);
   tools.log('note', 'server started');
   function onRequest(request, response) {
     request.on('error', function(err){
       tools.log('error', 'request', err);
     });
-    route(request, response);
+    router.route(request, response);
   }
-
 }
 
 exports.start = start;
