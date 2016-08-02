@@ -1,0 +1,5 @@
+Noddy is a tiny nodejs webserver for serving php pages.
+
+It is intended as an out-of-the-box, quick and dirty way to test small php scripts.
+
+It requires nodejs and php-cli to be installed.
