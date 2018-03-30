@@ -10,13 +10,14 @@ function route (request, response) {
   requestHeaders(request); // Inspects headers.
   portal.portal();
 
-
-
   var filename = url.parse(request.url).pathname;
   filename = filename.substr(1, filename.length);
   var queryString = url.parse(request.url).search;
   tools.log('info',filename);
 
+  if (filename === '') {
+      requester.serveFile('welcome.html', 'html', '', response);
+  }
     // Loop through portal files to see if the requested one exists.
     var found = '';
     for (var i = 0, l = config.web.files.length; i < l; i++) {

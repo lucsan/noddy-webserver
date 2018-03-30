@@ -10,7 +10,9 @@ function serveFile (file, ext, queryString, response) {
   tools.log('info', 'Request called on ' + file + ' ' + queryString);
 
   if (ext === 'php') {
-    callout = 'ENV=dev php ' + config.web.portal + '/' + file + ' ' + queryString;
+
+    //callout = 'NODE_ENV=dev php ' + config.web.portal + '/' + file + ' ' + queryString;
+    callout = 'php ' + config.web.portal + '/' + file + ' ' + queryString;
     tools.log('debug', 'callout', callout);
     executeData(callout, response);
   }

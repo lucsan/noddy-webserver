@@ -7,7 +7,7 @@ var env = process.env.NODE_ENV || 'development';
 var web = {};
 var log = {};
 
-web.port = 8888;
+web.port = 8800;
 web.remarks = true;
 web.exts = ['php', 'htm', 'html', 'py']; // Order in this array is important.
 web.portal = 'portal'; // Name of portal folder, ie: html, www, html_public, public, etc

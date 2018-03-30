@@ -14,7 +14,7 @@ var http = require("http");
 function start () {
   //portal.portal(); // Initiallise list of known files in the portal folder.
   http.createServer(onRequest).listen(config.web.port);
-  tools.log('note', 'server started');
+  tools.log('note', 'server started on localhost:' + config.web.port);
   function onRequest(request, response) {
     request.on('error', function(err){
       tools.log('error', 'request', err);

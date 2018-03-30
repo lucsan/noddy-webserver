@@ -1,5 +1,8 @@
 <html>
 php test page.
+<pre>
+
+
 </html>
 <?php
 /**
@@ -7,9 +10,13 @@ php test page.
  *
  */
 
-echo 'And php works too.', PHP_EOL;
+echo PHP_EOL . 'And php works too.', PHP_EOL;
 
-print_r($_ENV['ENV']);
+if (isset($_ENV['ENV'])) {
+    print_r($_ENV['ENV']);
+} else {
+    print "No ENV variable set" . PHP_EOL;
+}
 
 echo "argv", PHP_EOL;
 
