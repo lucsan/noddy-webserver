@@ -2,6 +2,10 @@ Noddy is a tiny local nodejs webserver.
 
 It is available on npm at: https://www.npmjs.com/package/@lucsan/noddy
 
+You might like to add this to your package.json scripts
+"noddy": "cd ./node_modules/@lucsan/noddy/ && node wave.js"
+or move the noddy folder to be the webroot. (You could also re-route the portal folder)
+
 Launch Noddy on the command line with: node wave.js
 
 It is intended as an out-of-the-box, local dev, quick and dirty way to test or run php scripts on a node server.
