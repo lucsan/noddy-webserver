@@ -1,0 +1,27 @@
+{
+  "name": "@lucsan/noddy",
+  "version": "1.0.0",
+  "description": "Micro web server runs on nodejs, very simple.",
+  "main": "wave.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node wave.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucsan/noddy-webserver.git"
+  },
+  "keywords": [
+    "npm",
+    "nodejs",
+    "webserver",
+    "noddy",
+    "micro"
+  ],
+  "author": "lucsan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucsan/noddy-webserver/issues"
+  },
+  "homepage": "https://github.com/lucsan/noddy-webserver#readme"
+}
