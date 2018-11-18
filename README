@@ -1,15 +1,17 @@
 Noddy is a tiny local nodejs webserver.
 
-Launch Noddy with: node wave.js
+Launch Noddy on the command line with: node wave.js
 
-It is intended as an out-of-the-box, local dev, quick and dirty way to test or run php scripts.
+It is intended as an out-of-the-box, local dev, quick and dirty way to test or run php scripts on a node server.
+
+It can run any kind of script, but it only configured for php and javascript.
 
 It requires nodejs to be installed.
 
 To run php, php-cli needs to be installed.
 
 This is a minimalistic server, the intent being to have a fast, small footprint webserver
-primarily to test php code, however with minor modification it could run bash, python etc,
+primarily to test php and javascript code, however with minor modification it could run bash, python etc,
 basically anything on your system which can be shelled out to.
 
-ATM Noddy is not optomised for anything and is not suitable for commercial use or use in production.
+WARNING: ATM Noddy is not optimized for anything and is not suitable for commercial use or use in production.

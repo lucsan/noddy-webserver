@@ -2,21 +2,21 @@
 config.js - global config values for noddy.
 */
 
-var env = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV || 'development'
 
-var web = {};
-var log = {};
-
-web.port = 8800;
-web.remarks = true;
-web.exts = ['php', 'htm', 'html', 'py']; // Order in this array is important.
-web.portal = 'portal'; // Name of portal folder, ie: html, www, html_public, public, etc
-
-
-log.on = true;
-log.to = 'cli'; // cli or file.
-log.path = ''; // path for noddy.log.
-log.file = 'noddy.log'; // log file name.
+// NOTE: exts in the exts array need a corresponding if statement in requester.js serveFile()
+var web = {
+  port: 8800,
+  remarks: true,
+  exts: ['php', 'htm', 'html', 'js', 'jpg', 'py'], // Order in this array is important.
+  portal: 'portal' // Name of portal folder, ie: html, www, html_public, public, etc
+}
+var log = {
+  on: true,
+  to: 'cli', // Output messages to cli or file.
+  path: '',// path for noddy.log file.
+  file: 'noddy.log' // log file name.
+}
 
 exports.web = web;
 exports.log = log;

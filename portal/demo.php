@@ -1,5 +1,5 @@
 <html>
-php test page.
+Demo php page.
 <pre>
 
 

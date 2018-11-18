@@ -18,28 +18,20 @@ function route (request, response) {
   if (filename === '') {
       requester.serveFile('welcome.html', 'html', '', response);
   }
-    // Loop through portal files to see if the requested one exists.
-    var found = '';
-    for (var i = 0, l = config.web.files.length; i < l; i++) {
-      if (config.web.files[i] === filename) {
-        found = filename;
-        pieces = found.split('.');
-        ext = pieces[pieces.length - 1];
-        break;
-      }
+  // Loop through portal files to see if the requested one exists.
+  var found = '';
+  for (var i = 0, l = config.web.files.length; i < l; i++) {
+    if (config.web.files[i] === filename) {
+      found = filename;
+      pieces = found.split('.');
+      ext = pieces[pieces.length - 1];
+      break;
     }
+  }
 
-    if (found) {
-      requester.serveFile(filename, ext, queryString, response);
-    }
-
-
-  // if (typeof pathname === 'function') {
-  //   pathname(response);
-  // } else {
-  //   console.log(typeof pathname);
-  // }
-
+  if (found) {
+    requester.serveFile(filename, ext, queryString, response);
+  }
 }
 
 

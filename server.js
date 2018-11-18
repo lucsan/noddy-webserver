@@ -5,14 +5,10 @@
  * Much of the work is done in router.js
  */
 
-
-
-var portal = require('./portal'); // Reads directory to see if there are any files to serve.
 var router = require('./router');
 var http = require("http");
 
 function start () {
-  //portal.portal(); // Initiallise list of known files in the portal folder.
   http.createServer(onRequest).listen(config.web.port);
   tools.log('note', 'server started on localhost:' + config.web.port);
   function onRequest(request, response) {

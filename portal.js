@@ -1,6 +1,10 @@
 /*
 Portal.js - acts as a portal to server executable (servable) pages.
-These pages would be in the portal (or alias) folder.
+These pages are in the portal (or portal alias) folder.
+
+Each asset (file) requested needs to be returned, so, an html page with a javascript file
+reference and an image needs to return 3 files, the html page, the javascript file and the image.
+
  */
 var fs = require('fs');
 
@@ -14,10 +18,8 @@ function portal () {
   }
 
   /**
-   * Take the list of files in the portal directory and adds legitimate (config.web.exts)
-   * to the list config.web.files.
-   * @param  {[type]} err  [description]
-   * @param  {[type]} list [description]
+   * Take the list of files in the portal directory and add legitimate (config.web.exts)
+   * to the new list config.web.files. This provied filtering for only permitted file exts.
    */
   function makeList (err, list) {
     if (err) {
