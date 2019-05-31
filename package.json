@@ -1,7 +1,7 @@
 {
   "name": "@lucsan/noddy",
-  "version": "1.0.0",
-  "description": "Micro web server runs on nodejs, very simple.",
+  "version": "1.0.1",
+  "description": "Micro web server runs on nodejs, very simple. Has a little blue hat with a bell on it.",
   "main": "wave.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -1,10 +1,31 @@
 Noddy is a tiny local nodejs webserver.
 
+Use ctrl + c to quit the server.
+
 It is available on npm at: https://www.npmjs.com/package/@lucsan/noddy
 
-You might like to add this to your package.json scripts
+or you can add it to your package.json file
+`
+"repository": {
+  "type": "git",
+  "url": "git+https://github.com/lucsan/noddy-webserver.git"
+},
+`
+
+You might like to add this line to your package.json scripts
+
 "noddy": "cd ./node_modules/@lucsan/noddy/ && node wave.js"
-or move the noddy folder to be the webroot. (You could also re-route the portal folder)
+
+now you can run noddy with `npm run noddy`
+
+If you want noddy to serve files from a folder other than node_modules/@lucsan/noddy/portal then
+edit noddy/config.js. The following serves files from a public folder in the root folder.
+
+`
+portal: '../../../public'
+`
+
+you could move the noddy folder to be the webroot. (You could also re-route the portal folder)
 
 Launch Noddy on the command line with: node wave.js
 
