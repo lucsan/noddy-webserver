@@ -3,7 +3,7 @@ function log (status, message, error = '') {
   if (error === null || error === undefined) { error = '' }
   if (typeof error === 'object') { error = JSON.stringify(error) }
   date = new Date().toISOString().replace('T', ' ').substr(0, 19)
-  let logLine = `staus: ${date}: ${message}`
+  let logLine = `status: ${date}: ${message}`
   if (error != '') logLine += `: ${error}`
   //var logLine = status + ': ' + date + ': ' + message + ': ' + error
 
